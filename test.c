@@ -1,15 +1,13 @@
 #include <stdio.h>
-
+#include <unistd.h>
+#include    <limits.h>
 int
 main(int argc, char **argv)
 {
 
-    int a = -1627389954;
-    if( a < 0 ){
-        a = ~(-a)+0x01;
-    }
-    printf("%d\n", a);
-    printf("0x%08x\n",a);
+    int open_max = sysconf(_SC_OPEN_MAX);  
+    printf("%d\n", open_max);
+    printf("%d\n", OPEN_MAX);
 
     return 0;
 }
