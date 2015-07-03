@@ -1,7 +1,7 @@
 /* include host_serv */
 #include	"unp.h"
 
-// 根据参数构造addrinfo结构
+// 根据参数构造addrinfo结构，对getaddrinfo的简易封装（hint只指定地址族和套接字类型）
 struct addrinfo *
 host_serv(const char *host, const char *serv, int family, int socktype)
 {
@@ -27,6 +27,7 @@ host_serv(const char *host, const char *serv, int family, int socktype)
  * is just to duplicate the simple function as we do here.
  */
 
+// 包裹函数，处理错误
 struct addrinfo *
 Host_serv(const char *host, const char *serv, int family, int socktype)
 {
